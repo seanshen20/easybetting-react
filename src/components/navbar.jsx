@@ -1,4 +1,5 @@
 import React from "react";
+import {NavLink} from 'react-router-dom'
 import styles from './navbar.module.css'
 
 const Navbar = () => {
@@ -8,19 +9,19 @@ const Navbar = () => {
         <span className="navbar-brand mb-0 h1"><img className={styles.img} src="/EasyBet.PNG" alt=""/></span>
       </nav>
       <div className="navbar-nav">
-        <span className="nav-item nav-link">
+        <NavLink to="/" className="nav-item nav-link">
           Racing
-        </span>
+        </NavLink>
       </div>
       <div className="navbar-nav">
-        <span className="nav-item nav-link">
+        <NavLink to="/sports" className="nav-item nav-link">
           Sports
-        </span>
+        </NavLink>
       </div>
       <div className="navbar-nav">
-        <span className="nav-item nav-link">
+        <NavLink to="/liveBetting" className="nav-item nav-link">
           Live Betting
-        </span>
+        </NavLink>
       </div>
     </nav>
   );

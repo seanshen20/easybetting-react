@@ -6,7 +6,8 @@ export default class Table extends Component {
   state = {
     activeButton: "All",
     data: [],
-    sortedData: []
+    sortedData: [],
+    initialDataError: false
   };
 
   pictureMap = {
@@ -15,12 +16,25 @@ export default class Table extends Component {
     Thoroughbred: "./horse3.PNG"
   };
 
-  async componentDidMount() {
-    const { data } = await axios.get(
-      "https://s3-ap-southeast-2.amazonaws.com/bet-easy-code-challenge/next-to-jump"
-    );
-    console.log(data.result);
-    this.setState({ data: data.result, sortedData: data.result });
+  // use promise catch error, should build up a errorHandler hoc, unmount do something.
+  // out of the scope of this task
+  // token bar or redirect to error page
+  componentDidMount() {
+    axios
+      .get(
+        "https://s3-ap-southeast-2.amazonaws.com/bet-easy-code-challenge/next-to-jump"
+      )
+      .then(response => {
+        this.setState({
+          data: response.data.result,
+          sortedData: response.data.result
+        });
+      })
+      .catch(error => {
+        this.setState({ initialDataError: true });
+        this.props.history.push("/error");
+        console.log(error);
+      });
   }
 
   filter = name => {

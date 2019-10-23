@@ -6,6 +6,8 @@ In the project directory, you can run:
 
 ### `npm start`
 
+Go to eb folder
+npm install 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
@@ -16,6 +18,17 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+It only test the navbar.
+More (mock, integration, etc) will include if require
+
+
+### Feature
+1. Navigation
+2. sorting from api and rendering the table component
+3. module css
+4. api error redirecting (should write a global error handler to catch, eject when unmount...)
+5. add one smoke test, should write more if have time
 
 ### `npm run build`
 
